@@ -1,0 +1,17 @@
+clusterIssuer:
+  name: letsencrypt-staging
+  email: hciftci@users.noreply.github.com
+  server: https://acme-staging-v02.api.letsencrypt.org/directory
+  ingressClassName: traefik
+
+
+cert-manager:
+  prometheus:
+    servicemonitor:
+      labels:
+        monitoring.instance: controlplane-prod
+
+namespace:
+  labels:
+    project-name: "controlplane"
+    stage: "prod"
